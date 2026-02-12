@@ -614,7 +614,7 @@ class Shipmondo
     {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_USERPWD, $this->_api_user . ":" . $this->_api_key);
-        $params['user_agent'] = 'smd_php_library v' . self::VERSION;
+        $params['user_agent'] = 'archanium_php_library v' . self::VERSION;
 
         switch ($method) {
             case 'GET':
