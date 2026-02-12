@@ -619,7 +619,11 @@ class Shipmondo
         switch ($method) {
             case 'GET':
                 $query = http_build_query($params);
-                curl_setopt($ch, CURLOPT_URL, $this->_api_base_path . '/' . $path . '?' . $query);
+                if (!$query) {
+                    curl_setopt($ch, CURLOPT_URL, $this->_api_base_path . '/' . $path);
+                } else {
+                    curl_setopt($ch, CURLOPT_URL, $this->_api_base_path . '/' . $path . '?' . $query);
+                }
                 break;
             case 'POST':
                 $query = json_encode($params);
